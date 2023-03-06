@@ -6,7 +6,7 @@ while True:
     if number.isnumeric():
         break
 
-number=int(number)
-list=[i for i in range(2,100) if i % number==0]
+number = int(number)
+list = [i for i in range(2, 100) if i % number == 0]
 
 print(list)
