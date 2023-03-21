@@ -23,8 +23,12 @@ def draw_board(game, size):
         print(grid1*size)
         new_line = []
         for cell in line:
-            new_line.append(cell)
-            new_line.append(grid2)
+            if cell==0:
+                new_line.append(" ")
+                new_line.append(grid2)
+            else:
+                new_line.append(cell)
+                new_line.append(grid2)
         new_line = list(grid2)+new_line
         print(*new_line)
 
