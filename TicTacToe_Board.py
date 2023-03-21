@@ -11,20 +11,23 @@ This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes 
 
 Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.'''
 
-while True:
-    grid_size = input("Type a board side length (ex., for 3x3 board the side is 3): \n")
-    if grid_size.isnumeric():
-        break
-
-grid_size = int(grid_size)
+"""game = [ [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]"""
 
 
-def draw_board(size):
+def draw_board(game, size):
     grid1 = ''' ---'''
-    grid2 = '''|   '''
-    for i in range(size):
+    grid2 = '''|'''
+    for line in game:
         print(grid1*size)
-        print(grid2*(size+1))
+        new_line = []
+        for cell in line:
+            new_line.append(cell)
+            new_line.append(grid2)
+        new_line = list(grid2)+new_line
+        print(*new_line)
+
     print(grid1*size)
 
-draw_board(grid_size)
+
