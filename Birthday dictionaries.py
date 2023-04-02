@@ -12,23 +12,35 @@ Benjamin Franklin
 Happy coding!'''
 
 import csv
+import json
 
 with open("birthdays.csv", "r") as file:
     reader = csv.reader(file)
-
     dictionary = dict(reader)
-    print(f"Welcome to the birthday dictionary. We know the birthdays of:\n")
 
-    # List of all available birthdays
-    for name, date in dictionary.items():
-        print(name)
+# To practise using JSON file we'll save dictionary to JSON and create a JSON file in the directory
+json_dict = json.dumps(dictionary, indent=4)
+with open("birthdays.json", "w") as f:
+    json.dump(json_dict, f)
 
-    while True:
+with open("birthdays.json", "r") as f:
+    dictionary_2 = json.load(f)
 
-        name = input(f"Who's birthday do you want to look up?:")
+dictionary_2 = json.loads(dictionary_2)  # to create dictionary from string
 
-        if name in dictionary:
-            print(f"{name}'s birthday is {dictionary[name]}")
-            break
-        else:
-            print("We don't have this information. Try another name\n")
+
+print(f"Welcome to the birthday dictionary. We know the birthdays of:\n")
+
+# List of all available birthdays
+for name in dictionary_2.keys():
+    print(name)
+
+while True:
+
+    name = input(f"Who's birthday do you want to look up?:")
+
+    if name in dictionary_2.keys():
+        print(f"{name}'s birthday is {dictionary_2[name]}")
+        break
+    else:
+        print("We don't have this information. Try another name\n")
