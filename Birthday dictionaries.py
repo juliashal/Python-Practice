@@ -23,6 +23,7 @@ json_dict = json.dumps(dictionary, indent=4)
 with open("birthdays.json", "w") as f:
     json.dump(json_dict, f)
 
+#Read the file
 with open("birthdays.json", "r") as f:
     dictionary_2 = json.load(f)
 
