@@ -13,35 +13,43 @@ Happy coding!'''
 
 import csv
 import json
+from datetime import datetime
 
 with open("birthdays.csv", "r") as file:
-    reader = csv.reader(file)
-    dictionary = dict(reader)
+    fieldnames = ("name", "date")
+    reader = csv.DictReader(file, fieldnames)
 
-# To practise using JSON file we'll save dictionary to JSON and create a JSON file in the directory
-json_dict = json.dumps(dictionary, indent=4)
+    # To practise using JSON file we'll save dictionary to JSON and create a JSON file in the directory
+    json_dict = [row for row in reader]
+
 with open("birthdays.json", "w") as f:
-    json.dump(json_dict, f)
+    json.dump(json_dict, f, indent=4)
 
-#Read the file
+# Read the file
 with open("birthdays.json", "r") as f:
-    dictionary_2 = json.load(f)
-
-dictionary_2 = json.loads(dictionary_2)  # to create dictionary from string
+    data_dict = json.load(f)
 
 
-print(f"Welcome to the birthday dictionary. We know the birthdays of:\n")
+print(f"Welcome to the birthday dictionary. We know the birthdays of:\n ")
 
-# List of all available birthdays
-for name in dictionary_2.keys():
-    print(name)
+name_dict = {}
+month_dict = {}
+
+for line in data_dict:
+    print(line['name'])
+    birth_date = datetime.strptime(line['date'], '%m/%d/%Y').date()
+    name_dict[line["name"]] = birth_date
+
+    #calculate how many birthdays in each month
+    month_dict[birth_date.strftime("%B")] = month_dict.get(birth_date.strftime("%B"), 0) + 1
+
+print(month_dict)
 
 while True:
 
     name = input(f"Who's birthday do you want to look up?:")
-
-    if name in dictionary_2.keys():
-        print(f"{name}'s birthday is {dictionary_2[name]}")
+    if name in name_dict:
+        print(f"{name}'s birthday is {name_dict[name]}")
         break
     else:
         print("We don't have this information. Try another name\n")
