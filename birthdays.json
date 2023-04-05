@@ -1,1 +1,30 @@
-"{\n    \"\\u00ef\\u00bb\\u00bfGalileo Galilei\": \"2/15/1564\",\n    \"Alessandro Volta\": \"2/18/1745\",\n    \"Ernst Mach\": \"2/18/1838\",\n    \"Thomas Edison\": \"2/11/1847\",\n    \"Heinrich Hertz\": \"2/22/1875\",\n    \"Linus Pauling\": \"28/02/1901\",\n    \"William Shockley\": \"13/02/1910\"\n}"
+[
+    {
+        "name": "Galileo Galilei",
+        "date": "2/15/1564"
+    },
+    {
+        "name": "Alessandro Volta",
+        "date": "2/18/1745"
+    },
+    {
+        "name": "Ernst Mach",
+        "date": "2/18/1838"
+    },
+    {
+        "name": "Thomas Edison",
+        "date": "2/11/1847"
+    },
+    {
+        "name": "Heinrich Hertz",
+        "date": "2/22/1875"
+    },
+    {
+        "name": "Linus Pauling",
+        "date": "2/28/1901"
+    },
+    {
+        "name": "William Shockley",
+        "date": "2/13/1910"
+    }
+]
